@@ -1,0 +1,191 @@
+---
+import { getCollection } from 'astro:content';
+import BackgroundImage from './BackgroundImage.astro';
+
+const allSlides = await getCollection('swiper');
+const slides = allSlides.sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="swiper">
+	<div class="swiper-wrapper">
+		{
+			slides.map((slide) => (
+				<div class="swiper-slide">
+					<BackgroundImage Background={slide.data.image}>
+						<div class="slide__header">
+							<div class="slide__tagline" data-swiper-parallax-opacity="0" data-swiper-parallax="150%">
+								{slide.data.tag}
+							</div>
+							<h1
+								class="slide__title"
+								data-swiper-parallax="-100%"
+								style={`background: linear-gradient(47.06deg, ${slide.data.color} -3.87%, rgb(255 255 255 / 0%) 20.89%), #fff;`}
+							>
+								{slide.data.title}
+							</h1>
+						</div>
+						<div class="slide__locations" data-swiper-parallax="-500">
+							<a href="#!" class="location">
+								<div class="location__title">Локация №1</div>
+								<div class="location__link">План путешествия</div>
+							</a>
+							<a href="#!" class="location">
+								<div class="location__title">Локация №2</div>
+								<div class="location__link">План путешествия</div>
+							</a>
+							<a href="#!" class="location">
+								<div class="location__title">Локация №3</div>
+								<div class="location__link">План путешествия</div>
+							</a>
+						</div>
+					</BackgroundImage>
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<script>
+	import Swiper from 'swiper/bundle';
+	import 'swiper/css/bundle';
+
+	new Swiper('.swiper', {
+		loop: true,
+		parallax: true,
+		speed: 1000,
+
+		keyboard: {
+			enabled: true,
+		},
+
+		pagination: {
+			el: '.slider-controls__count',
+			type: 'fraction',
+		},
+
+		navigation: {
+			nextEl: '#sliderNext',
+			prevEl: '#sliderPrev',
+		},
+
+		scrollbar: {
+			el: '.swiper-scrollbar',
+		},
+	});
+</script>
+
+<style lang="scss">
+	.slide {
+		&__header {
+			position: relative;
+			text-align: center;
+		}
+
+		&__tagline {
+			position: absolute;
+			top: -8px;
+			width: 100%;
+			font-size: 2.56vw;
+			font-weight: 500;
+			line-height: 1.23;
+			color: rgb(255 255 255 / 70%);
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+
+			@media (width <= 767px) {
+				font-size: 3vw;
+			}
+		}
+
+		&__title {
+			display: inline-block;
+			padding: 0 10px;
+			font-size: 13vw;
+			font-weight: 700;
+			line-height: 1.22;
+			background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+
+			@media (width <= 767px) {
+				font-size: 19vw;
+			}
+		}
+
+		&__locations {
+			display: flex;
+			column-gap: 30px;
+			width: 70%;
+			margin: 0 auto;
+
+			@media (width <= 1023px) {
+				width: 90%;
+			}
+
+			@media (width <= 767px) {
+				flex-direction: column;
+				row-gap: 20px;
+				width: 90%;
+			}
+		}
+	}
+
+	.location {
+		position: relative;
+		display: block;
+		flex-grow: 1;
+		padding: 34px 20px 26px 95px;
+		text-decoration: none;
+		background-image: url('../assets/icons/map-marker-line.svg');
+		background-repeat: no-repeat;
+		background-position: 35px 40px; /* x y */
+		background-size: auto;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		@media (width <= 1400px) {
+			padding: 20px 20px 18px 55px;
+			background-position: 15px 22px; /* x y */
+		}
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+			background: rgb(255 255 255 / 10%);
+			filter: blur(3px);
+			border-radius: 5px;
+			transition: all 0.2s ease-in;
+		}
+
+		&:hover::before {
+			filter: blur(10px);
+			opacity: 0.8;
+		}
+
+		&__title {
+			margin-bottom: 4px;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 1.2;
+			color: #fff;
+
+			@media (width <= 1400px) {
+				font-size: 18px;
+			}
+		}
+
+		&__link {
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 1.25;
+			color: #fff;
+			opacity: 0.4;
+		}
+	}
+</style>

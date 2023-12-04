@@ -1,0 +1,115 @@
+---
+import Navigation from './Navigation.astro';
+import SeeMore from './SeeMore.astro';
+import SliderControls from './SliderControls.astro';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<div class="main__content">
+	<div class="main__nav"><Navigation /></div>
+	<div class="main__socials"><SocialLinks /></div>
+	<div class="main__see-more"><SeeMore /></div>
+	<div class="main__slider-controls"><SliderControls /></div>
+	<div class="main__scrollbar">
+		<div class="swiper-scrollbar"></div>
+	</div>
+</div>
+
+<style lang="scss">
+	.main {
+		&__content {
+			position: absolute;
+			inset: 50px 70px 80px;
+			z-index: 9;
+
+			// background-color: rgba(255, 255, 255, 0.109);
+
+			pointer-events: none;
+
+			@media (width <= 1200px) {
+				inset: 40px 40px 60px;
+			}
+
+			@media (width <= 767px) {
+				inset: 30px 5%;
+			}
+		}
+
+		&__nav {
+			pointer-events: all;
+		}
+
+		&__socials {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			pointer-events: all;
+			transform: translate(0%, -50%);
+
+			// background-color: #878787;
+			// height: 140px;
+			// width: 30px;
+
+			@media (width <= 767px) {
+				display: none;
+			}
+
+			@media (height <= 600px) {
+				top: 40%;
+			}
+		}
+
+		&__see-more {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			pointer-events: all;
+
+			// background-color: #878787;
+			// height: 120px;
+			// width: 200px;
+
+			@media (width <= 1023px) {
+				display: none;
+			}
+		}
+
+		&__slider-controls {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			pointer-events: all;
+
+			@media (width <= 1023px) {
+				display: none;
+			}
+		}
+
+		&__scrollbar {
+			position: absolute;
+			top: 45%;
+			right: 0;
+			width: 400px;
+			height: 10px;
+			pointer-events: all;
+
+			// background-color: red;
+
+			transform: rotate(90deg) translate(50%, 0%);
+			transform-origin: right top;
+
+			@media (width >=768px) and (height <= 700px) {
+				width: 300px;
+			}
+
+			@media (width <= 767px) {
+				top: unset;
+				right: unset;
+				bottom: -15px;
+				left: 0;
+				width: 100%;
+				transform: none;
+			}
+		}
+	}
+</style>

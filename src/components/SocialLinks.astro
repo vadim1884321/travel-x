@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+
+const allSocialLinks = await getCollection('social');
+const socialLinks = allSocialLinks.sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="socials">
+	{
+		socialLinks.length > 0 && (
+			<>
+				{socialLinks.map((link) => (
+					<a href={link.data.link} title={link.data.name} aria-label={link.data.name}>
+						<Icon name={link.data.icon} size={24} aria-hidden="true" />
+					</a>
+				))}
+			</>
+		)
+	}
+</div>
+
+<style lang="scss">
+	.socials {
+		display: flex;
+		flex-direction: column;
+		row-gap: 28px;
+		align-items: center;
+	}
+</style>

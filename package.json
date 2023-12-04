@@ -1,0 +1,73 @@
+{
+  "name": "astro-start-project",
+  "description": "Astro Start Project",
+  "type": "module",
+  "version": "0.0.1",
+  "browserslist": [
+    "defaults"
+  ],
+  "engines": {
+    "node": ">=18.14.1",
+    "pnpm": ">=8.8.1"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "eslint": "eslint ./src/**/*.{js,ts,jsx,tsx,astro} --ignore-path .gitignore",
+    "eslint:fix": "eslint --fix ./src/**/*.{js,ts,jsx,tsx,astro} --ignore-path .gitignore",
+    "eslint:precommit": "eslint --max-warnings 0 --ignore-path .gitignore",
+    "format": "prettier --write . --plugin=prettier-plugin-astro",
+    "format:precommit": "prettier --check . --plugin=prettier-plugin-astro",
+    "stylelint": "stylelint \"./src/**/*.{css,scss,astro}\"",
+    "stylelint:fix": "stylelint --fix \"./src/**/*.{css,scss,astro}\"",
+    "stylelint:precommit": "stylelint --max-warnings 0 --ignore-path .gitignore"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.3.1",
+    "@astrojs/mdx": "^1.1.5",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.3",
+    "@sindresorhus/slugify": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "astro": "^3.6.4",
+    "astro-compress": "^2.2.3",
+    "astro-critters": "^2.0.11",
+    "astro-favicons": "^1.2.0",
+    "astro-icon": "1.0.0-next.2",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54.0",
+    "eslint-plugin-astro": "^0.30.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "postcss": "^8.4.31",
+    "postcss-html": "^1.5.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-astro": "^0.12.2",
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "sass": "^1.69.5",
+    "sharp": "^0.33.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recess-order": "^4.4.0",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "stylelint-scss": "^5.3.1",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@fontsource-variable/montserrat": "^5.0.16",
+    "swiper": "^11.0.5"
+  },
+  "packageManager": "pnpm@8.8.0",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "typedoc"
+      ]
+    }
+  }
+}

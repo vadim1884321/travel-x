@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<nav class="nav">
+	<a href={import.meta.env.BASE_URL} class="nav__logo">
+		<img src="/images/logo.svg" alt="Логотип" />
+	</a>
+
+	<div class="nav__list">
+		<ul>
+			<li><a href="#!">Назначение</a></li>
+			<li><a href="#!">Мероприятия</a></li>
+			<li><a href="#!">О нас</a></li>
+			<li><a href="#!">Контакты</a></li>
+		</ul>
+	</div>
+
+	<div class="nav__mobile-nav">
+		<button id="modalOpen" class="nav-btn" type="button">
+			<Icon name="nav-btn" width={35} height={23} aria-hidden="true" />
+		</button>
+	</div>
+</nav>
+
+<style lang="scss">
+	.nav {
+		display: flex;
+		column-gap: 30px;
+		align-items: center;
+		justify-content: space-between;
+
+		&__list {
+			@media (width <= 1200px) {
+				display: none;
+			}
+
+			ul {
+				display: flex;
+				column-gap: 65px;
+				align-items: center;
+				font-size: 18px;
+				font-weight: 600;
+				line-height: 1.22;
+			}
+
+			a {
+				position: relative;
+				text-decoration: none;
+
+				&::before {
+					position: absolute;
+					bottom: -4px;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					content: '';
+					background-color: #fff;
+					transition: transform 0.3s ease-in-out;
+					transform: scaleX(0);
+					transform-origin: right;
+				}
+
+				&:hover::before {
+					transform: scaleX(1);
+					transform-origin: left;
+				}
+			}
+		}
+
+		&__mobile-nav {
+			width: 155px;
+			text-align: right;
+		}
+	}
+</style>

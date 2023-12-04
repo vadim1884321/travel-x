@@ -1,0 +1,50 @@
+---
+import { getImage } from 'astro:assets';
+
+const { Background } = Astro.props;
+
+const optimizedBackground = await getImage({ src: Background });
+---
+
+<div class="slide" style={`background: var(--radial-bg), var(--linear-bg),url(${optimizedBackground.src});`}>
+	<slot />
+</div>
+
+<style lang="scss">
+	:root {
+		--radial-bg: radial-gradient(50% 50% at 50% 50%, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 20%) 100%);
+		--linear-bg: linear-gradient(180deg, rgb(0 0 0 / 20%) 0%, rgb(255 255 255 / 0%) 99.99%, rgb(255 255 255 / 0%) 100%);
+	}
+
+	.slide {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100vh;
+		padding-bottom: 80px;
+		overflow: hidden;
+		color: hsl(0deg 0% 100%);
+		cursor: grab;
+		background-color: hsl(0deg 0% 33%);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		&::before {
+			content: '';
+		}
+
+		&:active {
+			cursor: grabbing;
+		}
+
+		@media (width <= 1200px) {
+			padding-bottom: 60px;
+		}
+
+		@media (width <= 767px) {
+			padding-top: 100px;
+			padding-bottom: 40px;
+		}
+	}
+</style>

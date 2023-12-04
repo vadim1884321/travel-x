@@ -1,0 +1,30 @@
+---
+import { SiteMetadata } from '@/config';
+import Loader from '@/components/Loader.astro';
+import MainContent from '@/components/MainContent.astro';
+import MobileNavigation from '@/components/MobileNavigation.astro';
+import Swiper from '@/components/Swiper.astro';
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title={SiteMetadata.title}>
+	<Loader />
+	<main class="main">
+		<Swiper />
+		<MainContent />
+		<MobileNavigation />
+	</main>
+</Layout>
+
+<style lang="scss">
+	.main {
+		position: relative;
+		height: 100vh;
+		color: hsl(0deg 0% 100%);
+		background-color: #c4c4c4;
+
+		& > a {
+			color: #fff;
+		}
+	}
+</style>

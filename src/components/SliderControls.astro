@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="slider-controls">
+	<div class="slider-controls__arrows">
+		<button id="sliderPrev" type="button" aria-label="Предыдущий слайд">
+			<Icon name="arrow-left" size={45} aria-hidden="true" />
+		</button>
+		<button id="sliderNext" type="button" aria-label="Следующий слайд">
+			<Icon name="arrow-right" size={45} aria-hidden="true" />
+		</button>
+	</div>
+	<div class="slider-controls__count"></div>
+</div>
+
+<style lang="scss">
+	.slider-controls {
+		display: grid;
+		gap: 15px;
+
+		&__arrows {
+			display: flex;
+			column-gap: 5px;
+			opacity: 0.8;
+		}
+
+		&__count {
+			display: flex;
+			column-gap: 6px;
+			align-items: flex-end;
+			justify-content: flex-end;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 1;
+			color: rgb(255 255 255 / 80%);
+			text-align: right;
+		}
+	}
+</style>

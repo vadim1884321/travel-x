@@ -1,0 +1,23 @@
+@import './global/fonts';
+@import './global/reset';
+@import './global/colors';
+
+.swiper-scrollbar {
+	height: 2px !important;
+	background-color: rgb(255 255 255 / 30%) !important;
+	border-radius: 0 !important;
+}
+
+.swiper-scrollbar-drag {
+	background-color: rgb(255 255 255) !important;
+	border-radius: 0 !important;
+}
+
+.slider-controls {
+	&__count-current,
+	.swiper-pagination-current {
+		font-size: 32px !important;
+		line-height: 0.75;
+		color: rgb(255 255 255 / 100%) !important;
+	}
+}
