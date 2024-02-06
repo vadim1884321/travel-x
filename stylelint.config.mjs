@@ -4,10 +4,10 @@ export default {
 		'stylelint-config-standard-scss',
 		'stylelint-config-html/astro',
 		'stylelint-config-html/html',
-		'stylelint-config-recess-order',
+		'stylelint-config-rational-order',
 		'stylelint-config-prettier-scss',
 	],
-	plugins: ['stylelint-scss'],
+	plugins: ['stylelint-scss', 'stylelint-order'],
 	rules: {
 		'at-rule-no-unknown': null,
 		'no-empty-source': null,

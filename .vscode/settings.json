@@ -3,13 +3,14 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll.markdownlint": "explicit"
   },
   "files.trimTrailingWhitespace": true,
   "[markdown]": {
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
+    "files.autoSave": "afterDelay"
   },
   "markdownlint.config": {
     "default": true
